@@ -104,3 +104,12 @@
   - api 함수 생성 및 호출
 
   - 비동기처리 및 submit 후처리 (폼 비우기 및 메세지 처리)
+
+  ## API 설정 공통화
+
+  - axios.create() 사용
+
+  - .env 파일 적용 (개발용 배포용 분리 )
+    - .env
+    - .env.production
+    - .env.development
