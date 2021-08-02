@@ -105,6 +105,8 @@
 
   - 비동기처리 및 submit 후처리 (폼 비우기 및 메세지 처리)
 
+  - try catch로 error 처리
+
   ## API 설정 공통화
 
   - axios.create() 사용
@@ -113,3 +115,17 @@
     - .env
     - .env.production
     - .env.development
+
+  ## 로그인 페이지 개발
+
+  - loginForm 컴포넌트 생성 및 등록
+
+  - loginForm 컴포넌트 마크업, 데이터 바인딩
+
+  - api 문서 확인 및 함수 생성 및 호출
+
+  - 비동기처리 및 submit 후처리 (폼 비우기 및 메세지 처리)
+
+  - try catch로 error 처리
+
+  - Validation 검증 

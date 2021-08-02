@@ -9,31 +9,23 @@
 				<label for="password">pw: </label>
 				<input id="password" type="text" v-model="password" />
 			</div>
-			<div>
-				<label for="nickname">nickname: </label>
-				<input id="nickname" type="text" v-model="nickname" />
-			</div>
-			<button
-				type="submit"
-				:disabled="!isUsernameValid || !password || !nickname"
-			>
-				signup
+			<button type="submit" :disabled="!isUsernameValid || !password">
+				로그인
 			</button>
 		</form>
-		<p>{{ this.log_message }}</p>
+		<p>{{ this.logMessage }}</p>
 	</div>
 </template>
 
 <script>
-import { registerUser } from '@/apis/index.js';
+import { loginUser } from '@/apis/index.js';
 import { validateEmail } from '@/utils/validation.js';
 export default {
 	data() {
 		return {
 			username: '',
 			password: '',
-			nickname: '',
-			log_message: '',
+			logMessage: '',
 		};
 	},
 	computed: {
@@ -47,11 +39,11 @@ export default {
 				const userdata = {
 					username: this.username,
 					password: this.password,
-					nickname: this.nickname,
 				};
-				const { data } = await registerUser(userdata);
-				this.log_message = `${data.username}님이 가입되었습니다.`;
+				const { data } = await loginUser(userdata);
+				this.logMessage = `${data.user.username}님 환영합니다.`;
 			} catch (error) {
+				console.log(error);
 				this.logMessage = error.response.data;
 			} finally {
 				this.initForm();
