@@ -129,3 +129,15 @@
   - try catch로 error 처리
 
   - Validation 검증 
+
+  ## 로그인 상태 관리와 스토어
+
+  - mainPage 컴포넌트 생성 및 라우트 등록
+
+  - 로그인 성공시 mainPage로 이동
+
+  - vuex 설치 및 연결
+
+  - 로그인 상태 vuex에 저장 및 상태에 따른 헤더 분기 처리
+
+  - 로그아웃 기능 구현
