@@ -141,3 +141,13 @@
   - 로그인 상태 vuex에 저장 및 상태에 따른 헤더 분기 처리
 
   - 로그아웃 기능 구현
+
+  ## 토큰을 이용한 API 인증 처리
+
+  - vuex 에 token 저장
+
+  - http 요청 시 header->Authorization에 토큰을 넣어야 함 
+
+  - axios interceptors 코드 모듈화
+
+  - insterceptors를 이용해 헤더에 토큰 값 넣기
