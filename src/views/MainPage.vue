@@ -34,7 +34,7 @@ export default {
 		this.loadPosts().then(() => (this.loading = false));
 	},
 	computed: {
-		...mapState(['loginUser']),
+		...mapState(['username']),
 	},
 	methods: {
 		async loadPosts() {

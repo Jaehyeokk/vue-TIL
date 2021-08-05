@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import { loginUser } from '@/apis/index.js';
 import { validateEmail } from '@/utils/validation.js';
 export default {
 	data() {
@@ -40,9 +39,7 @@ export default {
 					username: this.username,
 					password: this.password,
 				};
-				const { data } = await loginUser(userdata);
-				this.$store.commit('setLoginUser', data.user);
-				this.$store.commit('setToken', data.token);
+				await this.$store.dispatch('LOGIN', userdata);
 				this.$router.push('/main');
 			} catch (error) {
 				console.log(error);

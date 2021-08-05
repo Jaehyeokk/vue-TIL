@@ -1,7 +1,7 @@
 <template>
 	<header>
 		<template v-if="isLogin">
-			{{ `${this.$store.state.loginUser.nickname}님 환영합니다.` }}
+			{{ `${this.$store.state.username}님 환영합니다.` }}
 			<a href="javascript:;" @click="logout">로그아웃</a>
 		</template>
 		<template v-else>
@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import { deleteCookie } from '@/utils/cookies.js';
 import { mapGetters } from 'vuex';
 export default {
 	computed: {
@@ -20,6 +21,8 @@ export default {
 	methods: {
 		logout() {
 			this.$store.commit('logout');
+			deleteCookie('til_auth');
+			deleteCookie('til_user');
 			this.$router.push('/login');
 		},
 	},
