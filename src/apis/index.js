@@ -15,12 +15,19 @@ function createInstance() {
 
 const instance = createInstance();
 
+// 회원가입
 function registerUser(data) {
 	return instance.post('/signup', data);
 }
 
+// 로그인
 function loginUser(data) {
 	return instance.post('/login', data);
 }
 
-export { registerUser, loginUser };
+// 학습노트 조회
+function fetchPosts() {
+	return instance.get('/posts');
+}
+
+export { registerUser, loginUser, fetchPosts };
