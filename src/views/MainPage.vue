@@ -8,6 +8,7 @@
 					:key="post._id"
 					:post="post"
 				></PostListItem>
+				<router-link to="/add">Add</router-link>
 			</template>
 		</div>
 	</div>

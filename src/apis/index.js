@@ -29,4 +29,9 @@ function fetchPosts() {
 	return instance.get('/posts');
 }
 
-export { registerUser, loginUser, fetchPosts };
+// 학습노트 생성
+function createPost(data) {
+	return instance.post('/posts', data);
+}
+
+export { registerUser, loginUser, fetchPosts, createPost };
