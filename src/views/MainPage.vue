@@ -17,7 +17,7 @@
 <script>
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue';
 import PostListItem from '@/components/posts/PostListItem.vue';
-import { fetchPosts } from '@/apis/index.js';
+import { fetchPosts } from '@/apis/posts.js';
 import { mapState } from 'vuex';
 export default {
 	components: {

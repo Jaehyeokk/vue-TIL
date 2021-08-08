@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { registerUser } from '@/apis/index.js';
+import { registerUser } from '@/apis/auth.js';
 import { validateEmail } from '@/utils/validation.js';
 export default {
 	data() {
