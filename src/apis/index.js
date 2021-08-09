@@ -16,4 +16,4 @@ function createAuthInstance(url) {
 }
 
 export const instance = createInstance();
-export const posts = createAuthInstance();
+export const posts = createAuthInstance('posts');

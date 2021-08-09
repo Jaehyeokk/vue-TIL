@@ -7,6 +7,7 @@
 					v-for="post in posts"
 					:key="post._id"
 					:post="post"
+					@deletedPost="loadPosts"
 				></PostListItem>
 				<router-link to="/add">Add</router-link>
 			</template>
