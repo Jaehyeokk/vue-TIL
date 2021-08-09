@@ -3,6 +3,7 @@
 		<p>{{ post.title }}</p>
 		<p>{{ post.contents }}</p>
 		<p>{{ post.createdAt }}</p>
+		<button @click="editPostIdtem()">수정</button>
 		<button @click="deletePostItem()">삭제</button>
 	</div>
 </template>
@@ -17,10 +18,15 @@ export default {
 			require: true,
 		},
 	},
+	created() {},
 	methods: {
 		async deletePostItem() {
 			await deletePost(this.post._id);
 			this.$emit('deletedPost');
+		},
+		editPostIdtem() {
+			const id = this.post._id;
+			this.$router.push({ path: `/post/${id}` });
 		},
 	},
 };
