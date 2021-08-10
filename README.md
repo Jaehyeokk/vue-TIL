@@ -212,4 +212,6 @@
 
   - 전역 filter 적용
 
-  
+  ## navigation guard 적용
+
+  - routes/index.js - navigation guard 적용
