@@ -206,3 +206,10 @@
 
   - 수정 API 및 기능 구현
 
+  ## filter 적용
+
+  - 지역 fliter 적용
+
+  - 전역 filter 적용
+
+  

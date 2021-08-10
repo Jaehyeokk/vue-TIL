@@ -2,7 +2,7 @@
 	<div>
 		<p>{{ post.title }}</p>
 		<p>{{ post.contents }}</p>
-		<p>{{ post.createdAt }}</p>
+		<p>{{ post.createdAt | formatDate }}</p>
 		<button @click="editPostIdtem()">수정</button>
 		<button @click="deletePostItem()">삭제</button>
 	</div>
@@ -18,7 +18,12 @@ export default {
 			require: true,
 		},
 	},
-	created() {},
+	// 지역 filter
+	// filters: {
+	// 	formatData(value) {
+	// 		return new Date(value);
+	// 	},
+	// },
 	methods: {
 		async deletePostItem() {
 			await deletePost(this.post._id);
