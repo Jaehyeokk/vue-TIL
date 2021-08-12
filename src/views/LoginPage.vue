@@ -1,0 +1,47 @@
+<template>
+	<div class="login-page">
+		<div class="container">
+			<div class="sign-title">Login</div>
+			<form class="sign-form" @submit.prevent="submitLogin">
+				<div class="input-wrap">
+					<label for="sign-id">ID: </label>
+					<input id="sign-id" type="text" v-model="login_id" />
+				</div>
+				<div class="input-wrap">
+					<label for="sign-pw">PW: </label>
+					<input id="sign-pw" type="password" v-model="login_pw" />
+				</div>
+				<div class="btn-wrap">
+					<button type="submit">Login</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</template>
+
+<script>
+export default {
+	data() {
+		return {
+			login_id: '',
+			login_pw: '',
+		};
+	},
+	methods: {
+		submitLogin() {
+			console.log('hi');
+		},
+	},
+};
+</script>
+
+<style scoped>
+.container {
+	width: 360px;
+	padding: 20px;
+	margin: 60px auto 0 auto;
+	border-radius: 20px;
+	background-color: #fff;
+	box-sizing: border-box;
+}
+</style>

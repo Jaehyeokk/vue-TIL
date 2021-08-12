@@ -1,17 +1,21 @@
 <template>
-  <div id="app">
-    <AppHeader />
-    <router-view />
-  </div>
+	<div id="app">
+		<AppHeader />
+		<router-view />
+	</div>
 </template>
 <script>
-import AppHeader from "@/components//common/AppHeader.vue";
+import AppHeader from '@/components//common/AppHeader.vue';
+import '@/assets/css/reset.css';
+import '@/assets/css/common.css';
 
 export default {
-  components: {
-    AppHeader,
-  },
+	components: {
+		AppHeader,
+	},
+	mounted() {
+		const html = document.querySelector('html');
+		html.classList.add('vue-note');
+	},
 };
 </script>
-
-<style></style>
