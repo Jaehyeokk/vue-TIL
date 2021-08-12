@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import MainPage from '../views/MainPage.vue';
 
 Vue.use(VueRouter);
 
@@ -8,7 +7,7 @@ const routes = [
 	{
 		path: '/',
 		name: 'main-page',
-		component: MainPage,
+		component: () => import('@/views/MainPage.vue'),
 	},
 	{
 		path: '/login',

@@ -13,7 +13,7 @@
 				</div>
 				<div class="input-wrap">
 					<label for="sign-name">NAME: </label>
-					<input id="sign-naem" type="password" v-model="sign_name" />
+					<input id="sign-name" type="password" v-model="sign_name" />
 				</div>
 				<div class="btn-wrap">
 					<button type="submit">Signup</button>
@@ -24,6 +24,8 @@
 </template>
 
 <script>
+import { signupUser } from '@/apis/index.js';
+
 export default {
 	data() {
 		return {
@@ -33,8 +35,24 @@ export default {
 		};
 	},
 	methods: {
-		submitSignup() {
-			console.log('hi');
+		async submitSignup() {
+			try {
+				await signupUser({
+					username: this.sign_id,
+					password: this.sign_pw,
+					nickname: this.sign_name,
+				});
+				this.resetForm();
+				this.$router.push({ name: 'login-page' });
+			} catch (err) {
+				console.log(err);
+				this.resetForm();
+			}
+		},
+		resetForm() {
+			this.sign_id = '';
+			this.sign_pw = '';
+			this.sign_name = '';
 		},
 	},
 };

@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import { loginUser } from '@/apis/index.js';
 export default {
 	data() {
 		return {
@@ -28,8 +29,22 @@ export default {
 		};
 	},
 	methods: {
-		submitLogin() {
-			console.log('hi');
+		async submitLogin() {
+			try {
+				const res = await loginUser({
+					username: this.login_id,
+					password: this.login_pw,
+				});
+				console.log(res);
+				this.resetForm();
+				this.$router.push({ name: 'main-page' });
+			} catch (err) {
+				console.log(err);
+			}
+		},
+		resetForm() {
+			this.login_id = '';
+			this.login_pw = '';
 		},
 	},
 };
