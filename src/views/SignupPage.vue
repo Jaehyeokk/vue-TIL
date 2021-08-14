@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { signupUser } from '@/apis/index.js';
+import { signupUser } from '@/apis/auth.js';
 
 export default {
 	data() {

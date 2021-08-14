@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import { loginUser } from '@/apis/index.js';
 export default {
 	data() {
 		return {
@@ -31,15 +30,15 @@ export default {
 	methods: {
 		async submitLogin() {
 			try {
-				const res = await loginUser({
+				await this.$store.dispatch('LOGIN', {
 					username: this.login_id,
 					password: this.login_pw,
 				});
-				console.log(res);
-				this.resetForm();
 				this.$router.push({ name: 'main-page' });
 			} catch (err) {
 				console.log(err);
+			} finally {
+				this.resetForm();
 			}
 		},
 		resetForm() {
