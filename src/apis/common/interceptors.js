@@ -1,11 +1,12 @@
 import store from '@/store/index.js';
+import { getAuthFromCookie } from '@/utils/cookies.js';
 
 function interceptors(instance) {
 	// Add a request interceptor
 	instance.interceptors.request.use(
 		function (config) {
 			// Do something before request is sent
-			const token = store.state.login.token;
+			const token = store.getters.user_token || getAuthFromCookie();
 			config.headers.Authorization = token;
 			return config;
 		},
