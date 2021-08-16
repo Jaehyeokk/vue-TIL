@@ -4,16 +4,30 @@
 			<h1 class="logo">
 				<router-link to="/">Vue-Note</router-link>
 			</h1>
-			<div class="sign-btns-wrap">
+			<div v-if="!is_login" class="sign-btns-wrap">
 				<router-link to="/login">Login</router-link>
 				<router-link to="/signup">Sign up</router-link>
+			</div>
+			<div v-else class="sign-btns-wrap">
+				<a href="javascript:;" @click="logout">Logout</a>
 			</div>
 		</div>
 	</header>
 </template>
 
 <script>
-export default {};
+import { mapGetters } from 'vuex';
+export default {
+	computed: {
+		...mapGetters(['is_login']),
+	},
+	methods: {
+		logout() {
+			this.$store.commit('LOGOUT');
+			this.$router.push({ name: 'login-page' });
+		},
+	},
+};
 </script>
 
 <style scoped>

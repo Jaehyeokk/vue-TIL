@@ -6,6 +6,7 @@ import {
 	saveUserToCookie,
 	getAuthFromCookie,
 	getUserFromCookie,
+	deleteCookie,
 } from '@/utils/cookies.js';
 
 Vue.use(Vuex);
@@ -16,14 +17,11 @@ export default new Vuex.Store({
 		user: {},
 	},
 	getters: {
-		is_login() {
-			return !!getAuthFromCookie() && !!getUserFromCookie();
+		is_login(state) {
+			return !!state.token || !!getUserFromCookie();
 		},
 		user_token() {
 			return getAuthFromCookie();
-		},
-		user_name() {
-			return JSON.parse(getUserFromCookie());
 		},
 	},
 	mutations: {
@@ -32,6 +30,12 @@ export default new Vuex.Store({
 		},
 		SET_USER(state, user) {
 			state.user = user;
+		},
+		LOGOUT(state) {
+			state.token = '';
+			state.user = {};
+			deleteCookie('til_auth');
+			deleteCookie('til_user');
 		},
 	},
 	actions: {
