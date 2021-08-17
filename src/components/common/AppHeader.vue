@@ -33,6 +33,7 @@ export default {
 <style scoped>
 .header {
 	height: 60px;
+	margin-bottom: 60px;
 	background-color: #093687;
 }
 
