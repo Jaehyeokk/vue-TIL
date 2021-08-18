@@ -1,26 +1,45 @@
 <template>
-	<div class="main-page">
+	<div class="page main-page">
 		<div class="container">
 			<ul class="post-list">
-				<li class="post-item">
-					<h3 class="post-title">title</h3>
-					<p class="post-contents">contents</p>
+				<li v-for="item in posts" :key="item.id" class="post-item">
+					<h3 class="post-title">{{ item.title }}</h3>
+					<p class="post-contents">{{ item.contents }}</p>
 					<div class="post-btns">
+						<p class="created">{{ item.createdAt }}</p>
 						<button class="edit-btn">Edit</button>
 						<button class="remove-btn">Remove</button>
 					</div>
 				</li>
 			</ul>
+			<button class="add-btn">Add</button>
 		</div>
 	</div>
 </template>
 
 <script>
-export default {};
+import { fetchPosts } from '@/apis/posts.js';
+export default {
+	data() {
+		return {
+			posts: null,
+		};
+	},
+	mounted() {
+		this.loadPost();
+	},
+	methods: {
+		async loadPost() {
+			const { data } = await fetchPosts();
+			this.posts = data.posts;
+		},
+	},
+};
 </script>
 
 <style scoped>
 .main-page {
+	position: relative;
 	min-height: calc(100vh - 240px);
 }
 
@@ -39,6 +58,7 @@ export default {};
 	width: 320px;
 	height: 320px;
 	padding: 20px 20px 40px;
+	margin: 0 30px 30px 0;
 	border-radius: 10px;
 	background-color: #fff;
 	box-sizing: border-box;
@@ -80,5 +100,20 @@ export default {};
 
 .post-item .post-btns .edit-btn {
 	margin-right: 5px;
+}
+
+.add-btn {
+	position: absolute;
+	right: 10px;
+	bottom: -50px;
+	width: 60px;
+	height: 60px;
+	border: none;
+	outline: none;
+	padding: 5px 15px;
+	border-radius: 4px;
+	background-color: #093687;
+	color: #fff;
+	cursor: pointer;
 }
 </style>
