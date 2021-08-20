@@ -1,7 +1,7 @@
 <template>
 	<div class="page main-page">
 		<div class="container">
-			<ul class="post-list">
+			<ul v-loading="loading" class="post-list">
 				<li v-for="item in posts" :key="item.id" class="post-item">
 					<h3 class="post-title">{{ item.title }}</h3>
 					<p class="post-contents">{{ item.contents }}</p>
@@ -12,17 +12,43 @@
 					</div>
 				</li>
 			</ul>
-			<button class="add-btn">Add</button>
+			<button class="add-btn" @click="addPostDialog = true">Add</button>
 		</div>
+		<el-dialog
+			v-loading="loading"
+			title="Add Post"
+			:visible.sync="addPostDialog"
+			width="50%"
+			:before-close="closePostDialog"
+		>
+			<div class="add-form-wrap">
+				<form @submit.prevent="handleAddPost">
+					<div>
+						<label for="input-title">Title</label>
+						<input id="input-title" type="text" v-model="form_title" />
+					</div>
+					<div>
+						<label for="input-contents">Contents</label>
+						<textarea id="input-contents" type="text" v-model="form_contents" />
+					</div>
+					<button @click="closePostDialog">Cancel</button>
+					<button type="submit">Add</button>
+				</form>
+			</div>
+		</el-dialog>
 	</div>
 </template>
 
 <script>
-import { fetchPosts } from '@/apis/posts.js';
+import { fetchPosts, createPost } from '@/apis/posts.js';
 export default {
 	data() {
 		return {
+			loading: false,
 			posts: null,
+			addPostDialog: false,
+			form_title: '',
+			form_contents: '',
 		};
 	},
 	mounted() {
@@ -30,8 +56,35 @@ export default {
 	},
 	methods: {
 		async loadPost() {
-			const { data } = await fetchPosts();
-			this.posts = data.posts;
+			try {
+				this.loading = true;
+				const { data } = await fetchPosts();
+				this.posts = data.posts;
+				this.loading = false;
+				return data;
+			} catch (err) {
+				console.log(err);
+			} finally {
+				this.loading = false;
+			}
+		},
+		closePostDialog() {
+			this.addPostDialog = false;
+		},
+		async handleAddPost() {
+			try {
+				this.loading = true;
+				await createPost({
+					title: this.form_title,
+					contents: this.form_contents,
+				});
+				await this.loadPost();
+				this.addPostDialog = false;
+			} catch (err) {
+				console.log(err);
+			} finally {
+				this.loading = false;
+			}
 		},
 	},
 };
