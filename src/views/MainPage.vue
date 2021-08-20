@@ -8,7 +8,9 @@
 					<div class="post-btns">
 						<p class="created">{{ item.createdAt }}</p>
 						<button class="edit-btn">Edit</button>
-						<button class="remove-btn">Remove</button>
+						<button class="remove-btn" @click="handleDeletePost(item._id)">
+							Remove
+						</button>
 					</div>
 				</li>
 			</ul>
@@ -40,7 +42,7 @@
 </template>
 
 <script>
-import { fetchPosts, createPost } from '@/apis/posts.js';
+import { fetchPosts, createPost, deletePost } from '@/apis/posts.js';
 export default {
 	data() {
 		return {
@@ -80,6 +82,17 @@ export default {
 				});
 				await this.loadPost();
 				this.addPostDialog = false;
+			} catch (err) {
+				console.log(err);
+			} finally {
+				this.loading = false;
+			}
+		},
+		async handleDeletePost(id) {
+			try {
+				this.loading = true;
+				await deletePost(id);
+				await this.loadPost();
 			} catch (err) {
 				console.log(err);
 			} finally {

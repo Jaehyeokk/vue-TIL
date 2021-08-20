@@ -8,4 +8,8 @@ function createPost(data) {
 	return posts.post('/', data);
 }
 
-export { fetchPosts, createPost };
+function deletePost(id) {
+	return posts.delete(`/${id}`);
+}
+
+export { fetchPosts, createPost, deletePost };
