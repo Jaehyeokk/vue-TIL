@@ -7,7 +7,9 @@
 					<p class="post-contents">{{ item.contents }}</p>
 					<div class="post-btns">
 						<p class="created">{{ item.createdAt }}</p>
-						<button class="edit-btn">Edit</button>
+						<button class="edit-btn" @click="openEditPostDialog(item._id)">
+							Edit
+						</button>
 						<button class="remove-btn" @click="handleDeletePost(item._id)">
 							Remove
 						</button>
@@ -38,17 +40,47 @@
 				</form>
 			</div>
 		</el-dialog>
+		<el-dialog
+			v-loading="loading"
+			title="Edit Post"
+			:visible.sync="editPostDialog"
+			width="50%"
+			:before-close="closePostDialog"
+		>
+			<div class="add-form-wrap">
+				<form @submit.prevent="handleEditPost">
+					<div>
+						<label for="input-title">Title</label>
+						<input id="input-title" type="text" v-model="form_title" />
+					</div>
+					<div>
+						<label for="input-contents">Contents</label>
+						<textarea id="input-contents" type="text" v-model="form_contents" />
+					</div>
+					<button @click="closePostDialog">Cancel</button>
+					<button type="submit">Edit</button>
+				</form>
+			</div>
+		</el-dialog>
 	</div>
 </template>
 
 <script>
-import { fetchPosts, createPost, deletePost } from '@/apis/posts.js';
+import {
+	fetchPosts,
+	fetchPost,
+	createPost,
+	editPost,
+	deletePost,
+} from '@/apis/posts.js';
 export default {
 	data() {
 		return {
 			loading: false,
 			posts: null,
 			addPostDialog: false,
+			editPostDialog: false,
+			edit_id: '',
 			form_title: '',
 			form_contents: '',
 		};
@@ -72,6 +104,7 @@ export default {
 		},
 		closePostDialog() {
 			this.addPostDialog = false;
+			this.editPostDialog = false;
 		},
 		async handleAddPost() {
 			try {
@@ -85,6 +118,32 @@ export default {
 			} catch (err) {
 				console.log(err);
 			} finally {
+				this.resetForm();
+				this.closePostDialog();
+				this.loading = false;
+			}
+		},
+		async openEditPostDialog(id) {
+			const { data } = await fetchPost(id);
+			this.edit_id = data._id;
+			this.form_title = data.title;
+			this.form_contents = data.contents;
+			this.editPostDialog = true;
+		},
+		async handleEditPost() {
+			try {
+				const id = this.edit_id;
+				this.loading = true;
+				await editPost(id, {
+					title: this.form_title,
+					contents: this.form_contents,
+				});
+				await this.loadPost();
+			} catch (err) {
+				console.log(err);
+			} finally {
+				this.resetForm();
+				this.closePostDialog();
 				this.loading = false;
 			}
 		},
@@ -98,6 +157,11 @@ export default {
 			} finally {
 				this.loading = false;
 			}
+		},
+		resetForm() {
+			this.edit_id = '';
+			this.form_title = '';
+			this.form_contents = '';
 		},
 	},
 };
