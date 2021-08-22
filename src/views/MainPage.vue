@@ -24,19 +24,32 @@
 			:visible.sync="addPostDialog"
 			width="50%"
 			:before-close="closePostDialog"
+			class="post-dialog"
 		>
 			<div class="add-form-wrap">
 				<form @submit.prevent="handleAddPost">
-					<div>
+					<div class="input-wrap">
 						<label for="input-title">Title</label>
-						<input id="input-title" type="text" v-model="form_title" />
+						<input
+							id="input-title"
+							class="input-area"
+							type="text"
+							v-model="form_title"
+						/>
 					</div>
-					<div>
+					<div class="input-wrap">
 						<label for="input-contents">Contents</label>
-						<textarea id="input-contents" type="text" v-model="form_contents" />
+						<textarea
+							id="input-contents"
+							class="input-area"
+							type="text"
+							v-model="form_contents"
+						/>
 					</div>
-					<button @click="closePostDialog">Cancel</button>
-					<button type="submit">Add</button>
+					<div class="form-btns-wrap">
+						<button type="submit">Add</button>
+						<button @click="closePostDialog">Cancel</button>
+					</div>
 				</form>
 			</div>
 		</el-dialog>
@@ -46,19 +59,32 @@
 			:visible.sync="editPostDialog"
 			width="50%"
 			:before-close="closePostDialog"
+			class="post-dialog"
 		>
 			<div class="add-form-wrap">
 				<form @submit.prevent="handleEditPost">
-					<div>
+					<div class="input-wrap">
 						<label for="input-title">Title</label>
-						<input id="input-title" type="text" v-model="form_title" />
+						<input
+							id="input-title"
+							class="input-area"
+							type="text"
+							v-model="form_title"
+						/>
 					</div>
-					<div>
+					<div class="input-wrap">
 						<label for="input-contents">Contents</label>
-						<textarea id="input-contents" type="text" v-model="form_contents" />
+						<textarea
+							id="input-contents"
+							class="input-area"
+							type="text"
+							v-model="form_contents"
+						/>
 					</div>
-					<button @click="closePostDialog">Cancel</button>
-					<button type="submit">Edit</button>
+					<div class="form-btns-wrap">
+						<button type="submit">Edit</button>
+						<button @click="closePostDialog">Cancel</button>
+					</div>
 				</form>
 			</div>
 		</el-dialog>
@@ -245,5 +271,30 @@ export default {
 	background-color: #093687;
 	color: #fff;
 	cursor: pointer;
+}
+
+/* form */
+.post-dialog .input-wrap {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+.post-dialog .form-btns-wrap {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.post-dialog .input-wrap .input-area {
+	min-width: 180px;
+}
+
+.post-dialog .form-btns-wrap button {
+	padding: 5px 15px;
+	margin: 10px 0 0 10px;
+	background-color: #093687;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
 }
 </style>
