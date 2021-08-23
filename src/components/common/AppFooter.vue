@@ -1,8 +1,11 @@
 <template>
 	<footer class="footer">
 		<div class="container">
-			<a href="#;">View source</a> |
-			<a href="#;">GitHub</a>
+			<a href="https://github.com/Jaehyeokk/vue-til-front" target="_blank"
+				>View source</a
+			>
+			|
+			<a href="https://github.com/Jaehyeokk" target="_blank">GitHub</a>
 		</div>
 	</footer>
 </template>
