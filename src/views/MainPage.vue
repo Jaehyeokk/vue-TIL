@@ -6,7 +6,7 @@
 					<h3 class="post-title">{{ item.title }}</h3>
 					<p class="post-contents">{{ item.contents }}</p>
 					<div class="post-btns">
-						<p class="created">{{ item.createdAt }}</p>
+						<p class="created">{{ item.createdAt | formatDate }}</p>
 						<button class="edit-btn" @click="openEditPostDialog(item._id)">
 							Edit
 						</button>
@@ -229,6 +229,10 @@ export default {
 	margin-top: 20px;
 	font-size: 18px;
 	line-height: 1.5;
+}
+
+.post-item .created {
+	margin-right: 10px;
 }
 
 .post-item .post-btns {

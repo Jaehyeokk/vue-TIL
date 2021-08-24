@@ -3,10 +3,12 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import Element from 'element-ui';
+import { formatDate } from '@/utils/filters.js';
 
 Vue.config.productionTip = false;
 
 Vue.use(Element);
+Vue.filter('formatDate', formatDate);
 
 new Vue({
 	router,
