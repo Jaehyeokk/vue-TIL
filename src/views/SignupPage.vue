@@ -3,6 +3,11 @@
 		<div class="container">
 			<div class="sign-title">Sign up</div>
 			<form class="sign-form" @submit.prevent="submitSignup">
+				<div class="valid-text-wrap">
+					<p v-if="!isValidateEmail && this.sign_id">
+						Please enter in e-mail format
+					</p>
+				</div>
 				<div class="input-wrap">
 					<label for="sign-id">ID: </label>
 					<input id="sign-id" type="text" v-model="sign_id" />
@@ -25,6 +30,7 @@
 
 <script>
 import { signupUser } from '@/apis/auth.js';
+import { validateEmail } from '@/utils/validation.js';
 
 export default {
 	data() {
@@ -33,6 +39,11 @@ export default {
 			sign_pw: '',
 			sign_name: '',
 		};
+	},
+	computed: {
+		isValidateEmail() {
+			return validateEmail(this.sign_id);
+		},
 	},
 	methods: {
 		async submitSignup() {

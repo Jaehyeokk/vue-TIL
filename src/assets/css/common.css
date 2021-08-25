@@ -26,6 +26,16 @@
 	margin-bottom: 20px;
 }
 
+.sign-form .valid-text-wrap {
+	height: 30px;
+}
+
+.sign-form .valid-text-wrap p {
+	line-height: 30px;
+	text-align: right;
+	color: red;
+}
+
 .sign-form .input-wrap label {
 	width: 60px;
 	font-weight: 500;
