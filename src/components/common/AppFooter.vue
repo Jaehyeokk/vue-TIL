@@ -22,7 +22,7 @@ export default {};
 	height: 60px;
 	padding: 0 20px;
 	margin-top: 60px;
-	background-color: #093687;
+	background-color: mediumpurple;
 	color: #fff;
 }
 

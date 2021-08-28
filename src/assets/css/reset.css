@@ -16,6 +16,7 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
+	font-family: 'Roboto';
 	vertical-align: baseline;
 }
 article, aside, details, figcaption, figure, 
@@ -43,4 +44,11 @@ table {
 a {
 	color: #333;
 	text-decoration: none;
+}
+button {
+	border: none;
+	border-radius: 5px;
+	background-color: transparent;
+	outline: none;
+	cursor: pointer;
 }

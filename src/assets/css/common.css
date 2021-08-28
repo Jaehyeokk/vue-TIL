@@ -12,7 +12,7 @@
 .sign-title {
 	font-weight: 700;
 	font-size: 32px;
-	color: #093687;
+	color: mediumpurple;
 	text-align: center;
 }
 
@@ -60,11 +60,10 @@
 
 .sign-form .btn-wrap button {
 	padding: 6px 16px;
-	border: 1px solid #ccc;
 	border-radius: 4px;
 	font-weight: 700;
 	font-size: 14px;
 	color: #fff;
-	background-color: #093687;
+	background-color: mediumpurple;
 	cursor: pointer;
 }

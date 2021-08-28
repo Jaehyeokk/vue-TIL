@@ -253,7 +253,7 @@ export default {
 	outline: none;
 	padding: 5px 15px;
 	border-radius: 4px;
-	background-color: #093687;
+	background-color: mediumpurple;
 	color: #fff;
 	cursor: pointer;
 }
@@ -272,7 +272,7 @@ export default {
 	outline: none;
 	padding: 5px 15px;
 	border-radius: 4px;
-	background-color: #093687;
+	background-color: mediumpurple;
 	color: #fff;
 	cursor: pointer;
 }
@@ -296,7 +296,7 @@ export default {
 .post-dialog .form-btns-wrap button {
 	padding: 5px 15px;
 	margin: 10px 0 0 10px;
-	background-color: #093687;
+	background-color: mediumpurple;
 	color: #fff;
 	border: none;
 	border-radius: 4px;

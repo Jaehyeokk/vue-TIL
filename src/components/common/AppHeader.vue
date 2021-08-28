@@ -5,11 +5,11 @@
 				<router-link to="/">Vue-Note</router-link>
 			</h1>
 			<div v-if="!is_login" class="sign-btns-wrap">
-				<router-link to="/login">Login</router-link>
-				<router-link to="/signup">Sign up</router-link>
+				<router-link class="sign-btn" to="/login">Login</router-link>
+				<router-link class="sign-btn invert" to="/signup">Sign up</router-link>
 			</div>
 			<div v-else class="sign-btns-wrap">
-				<a href="javascript:;" @click="logout">Logout</a>
+				<button class="sign-btn" @click="logout">Logout</button>
 			</div>
 		</div>
 	</header>
@@ -37,8 +37,24 @@ export default {
 	background-color: #093687;
 }
 
-.header a {
+.header .container {
+	padding: 0 20px;
+}
+
+.header .logo a {
+	font-family: 'Playball';
+}
+
+.header .sign-btn {
 	color: #fff;
+	border: 1px solid #fff;
+	border-radius: 5px;
+}
+
+.header .sign-btn.invert {
+	background-color: #fff;
+	color: #333;
+	margin-left: 10px;
 }
 .container {
 	display: flex;
@@ -55,7 +71,7 @@ export default {
 	color: #fff;
 }
 
-.sign-btns-wrap a {
+.sign-btns-wrap .sign-btn {
 	padding: 6px 16px;
 	font-weight: 700;
 	font-size: 14px;
