@@ -34,7 +34,7 @@ export default {
 .header {
 	height: 60px;
 	margin-bottom: 60px;
-	background-color: #093687;
+	background-color: mediumpurple;
 }
 
 .header .container {

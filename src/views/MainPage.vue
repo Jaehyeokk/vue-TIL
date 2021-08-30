@@ -48,7 +48,7 @@
 					</div>
 					<div class="form-btns-wrap">
 						<button type="submit">Add</button>
-						<button @click="closePostDialog">Cancel</button>
+						<button type="button" @click="closePostDialog">Cancel</button>
 					</div>
 				</form>
 			</div>
@@ -83,7 +83,7 @@
 					</div>
 					<div class="form-btns-wrap">
 						<button type="submit">Edit</button>
-						<button @click="closePostDialog">Cancel</button>
+						<button type="button" @click="closePostDialog">Cancel</button>
 					</div>
 				</form>
 			</div>
