@@ -1,70 +1,16 @@
 <template>
 	<div class="page signup-page">
 		<div class="container">
-			<div class="sign-title">Sign up</div>
-			<form class="sign-form" @submit.prevent="submitSignup">
-				<div class="valid-text-wrap">
-					<p v-if="!isValidateEmail && this.sign_id">
-						Please enter in e-mail format
-					</p>
-				</div>
-				<div class="input-wrap">
-					<label for="sign-id">ID: </label>
-					<input id="sign-id" type="text" v-model="sign_id" />
-				</div>
-				<div class="input-wrap">
-					<label for="sign-pw">PW: </label>
-					<input id="sign-pw" type="password" v-model="sign_pw" />
-				</div>
-				<div class="input-wrap">
-					<label for="sign-name">NAME: </label>
-					<input id="sign-name" type="password" v-model="sign_name" />
-				</div>
-				<div class="btn-wrap">
-					<button type="submit">Signup</button>
-				</div>
-			</form>
+			<SignForm></SignForm>
 		</div>
 	</div>
 </template>
 
 <script>
-import { signupUser } from '@/apis/auth.js';
-import { validateEmail } from '@/utils/validation.js';
-
+import SignForm from '@/components/sign/SignForm.vue';
 export default {
-	data() {
-		return {
-			sign_id: '',
-			sign_pw: '',
-			sign_name: '',
-		};
-	},
-	computed: {
-		isValidateEmail() {
-			return validateEmail(this.sign_id);
-		},
-	},
-	methods: {
-		async submitSignup() {
-			try {
-				await signupUser({
-					username: this.sign_id,
-					password: this.sign_pw,
-					nickname: this.sign_name,
-				});
-				this.resetForm();
-				this.$router.push({ name: 'login-page' });
-			} catch (err) {
-				console.log(err);
-				this.resetForm();
-			}
-		},
-		resetForm() {
-			this.sign_id = '';
-			this.sign_pw = '';
-			this.sign_name = '';
-		},
+	components: {
+		SignForm,
 	},
 };
 </script>

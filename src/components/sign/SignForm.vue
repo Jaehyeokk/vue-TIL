@@ -1,0 +1,100 @@
+<template>
+	<div class="sign-form-wrap">
+		<div class="sign-title">{{ isTitle }}</div>
+		<form class="sign-form" @submit.prevent="submitHandle">
+			<div class="valid-text-wrap">
+				<p v-if="!isValidateEmail && this.sign_id">
+					Please enter in e-mail format
+				</p>
+			</div>
+			<div class="input-wrap">
+				<label for="sign-id">ID: </label>
+				<input
+					id="sign-id"
+					type="text"
+					autocomplete="username"
+					v-model="sign_id"
+				/>
+			</div>
+			<div class="input-wrap">
+				<label for="sign-pw">PW: </label>
+				<input
+					id="sign-pw"
+					type="password"
+					autocomplete="current-password"
+					v-model="sign_pw"
+				/>
+			</div>
+			<div v-if="this.$route.name === 'signup-page'" class="input-wrap">
+				<label for="sign-name">NAME: </label>
+				<input id="sign-name" type="text" v-model="sign_name" />
+			</div>
+			<div class="btn-wrap">
+				<button type="submit">{{ isTitle }}</button>
+			</div>
+		</form>
+	</div>
+</template>
+
+<script>
+import { signupUser } from '@/apis/auth.js';
+import { validateEmail } from '@/utils/validation.js';
+export default {
+	data() {
+		return {
+			sign_id: '',
+			sign_pw: '',
+			sign_name: '',
+		};
+	},
+	computed: {
+		isTitle() {
+			return this.$route.name === 'signup-page' ? 'Sign up' : 'Login';
+		},
+		isValidateEmail() {
+			return validateEmail(this.sign_id);
+		},
+	},
+	methods: {
+		submitHandle() {
+			if (this.$route.name === 'signup-page') {
+				this.submitSignup();
+			} else {
+				this.submitLogin();
+			}
+		},
+		async submitSignup() {
+			try {
+				await signupUser({
+					username: this.sign_id,
+					password: this.sign_pw,
+					nickname: this.sign_name,
+				});
+				this.resetForm();
+				this.$router.push({ name: 'login-page' });
+			} catch (err) {
+				console.log(err);
+				this.resetForm();
+			}
+		},
+		async submitLogin() {
+			try {
+				await this.$store.dispatch('LOGIN', {
+					username: this.sign_id,
+					password: this.sign_pw,
+				});
+				this.$router.push({ name: 'main-page' });
+			} catch (err) {
+				console.log(err);
+			} finally {
+				this.resetForm();
+			}
+		},
+		resetForm() {
+			this.sign_id = '';
+			this.sign_pw = '';
+			this.sign_name = '';
+		},
+	},
+};
+</script>
