@@ -22,7 +22,6 @@
 			v-loading="loading"
 			title="Add Post"
 			:visible.sync="addPostDialog"
-			width="50%"
 			:before-close="closePostDialog"
 			class="post-dialog"
 		>
@@ -57,7 +56,6 @@
 			v-loading="loading"
 			title="Edit Post"
 			:visible.sync="editPostDialog"
-			width="50%"
 			:before-close="closePostDialog"
 			class="post-dialog"
 		>

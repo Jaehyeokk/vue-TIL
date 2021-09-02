@@ -8,6 +8,20 @@
 	min-height: calc(100vh - 240px);
 }
 
+/* dialog */
+.post-dialog .el-dialog {
+	width: 90%;
+	max-width: 400px;
+}
+
+.post-dialog .el-dialog__title {
+	color: #fff;
+}
+
+.post-dialog .el-dialog__headerbtn .el-dialog__close {
+	color: #fff;
+}
+
 /* form - sign */
 .sign-title {
 	font-weight: 700;
