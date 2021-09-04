@@ -1,0 +1,10 @@
+{
+  "name": "vue-note",
+  "version": "1.0.0",
+  "description": "vue-note",
+  "author": "jaehyeokk",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm install express"
+  }
+ }
