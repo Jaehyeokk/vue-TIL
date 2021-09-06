@@ -1,6 +1,6 @@
 ## 🔗 Demo
 
-[Note app demo](vue-til-front.herokuapp.com/)
+[Note app demo](https://vue-til-front.herokuapp.com/)
 
 <br />
 
