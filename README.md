@@ -1,5 +1,4 @@
-
-<br />
+---
 
 ## 🔗 Demo
 
@@ -21,9 +20,4 @@
 
 ✔️ Axios
 
-✔️ element-ui
-
-<br />
-
-## 💻 Preview
-
+✔️ Element-ui
