@@ -1,5 +1,3 @@
----
-
 ## 🔗 Demo
 
 [Note app demo](vue-til-front.herokuapp.com/)
