@@ -13,12 +13,12 @@ const routes = [
 			if (store.getters.is_login === true) {
 				next();
 			} else {
-				next('/login');
+				next('/signin');
 			}
 		},
 	},
 	{
-		path: '/login',
+		path: '/signin',
 		name: 'login-page',
 		component: () => import('@/views/LoginPage.vue'),
 		beforeEnter: (to, from, next) => {
