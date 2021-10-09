@@ -16,9 +16,5 @@ export default {
 		AppHeader,
 		AppFooter,
 	},
-	mounted() {
-		const html = document.querySelector('html');
-		html.classList.add('vue-note');
-	},
 };
 </script>

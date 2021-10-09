@@ -5,7 +5,7 @@
 				<router-link to="/">Vue-Note</router-link>
 			</h1>
 			<div v-if="!is_login" class="sign-btns-wrap">
-				<router-link class="sign-btn" to="/login">Login</router-link>
+				<router-link class="sign-btn" to="/login">Sign in</router-link>
 				<router-link class="sign-btn invert" to="/signup">Sign up</router-link>
 			</div>
 			<div v-else class="sign-btns-wrap">

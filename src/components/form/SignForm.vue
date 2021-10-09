@@ -1,14 +1,8 @@
 <template>
 	<div class="sign-form-wrap">
-		<div class="sign-title">{{ isTitle }}</div>
 		<form class="sign-form" @submit.prevent="submitHandle">
-			<div class="valid-text-wrap">
-				<p v-if="!isValidateEmail && this.sign_id">
-					Please enter in e-mail format
-				</p>
-			</div>
 			<div class="input-wrap">
-				<label for="sign-id">ID: </label>
+				<label for="sign-id">Email address </label>
 				<input
 					id="sign-id"
 					type="text"
@@ -16,8 +10,13 @@
 					v-model="sign_id"
 				/>
 			</div>
+			<div class="valid-text-wrap">
+				<p v-if="!isValidateEmail && this.sign_id">
+					Please enter in e-mail format
+				</p>
+			</div>
 			<div class="input-wrap">
-				<label for="sign-pw">PW: </label>
+				<label for="sign-pw">Password </label>
 				<input
 					id="sign-pw"
 					type="password"
@@ -26,7 +25,7 @@
 				/>
 			</div>
 			<div v-if="this.$route.name === 'signup-page'" class="input-wrap">
-				<label for="sign-name">NAME: </label>
+				<label for="sign-name">Username </label>
 				<input id="sign-name" type="text" v-model="sign_name" />
 			</div>
 			<div class="btn-wrap">
@@ -49,7 +48,7 @@ export default {
 	},
 	computed: {
 		isTitle() {
-			return this.$route.name === 'signup-page' ? 'Sign up' : 'Login';
+			return this.$route.name === 'signup-page' ? 'Sign up' : 'Sign in';
 		},
 		isValidateEmail() {
 			return validateEmail(this.sign_id);

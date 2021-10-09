@@ -1,6 +1,7 @@
 /* html */
-.vue-note {
-  background-color: #e9ecf1;
+html {
+  background-color: #fff;
+	font-family: 'Noto Sans KR', 'Roboto';
 }
 
 /* page */
@@ -26,62 +27,58 @@
 	color: #fff;
 }
 
-/* form - sign */
-.sign-title {
-	font-weight: 700;
-	font-size: 32px;
-	color: mediumpurple;
-	text-align: center;
-}
-
-.sign-form {
-	padding: 30px 0 10px;
-}
-
 .sign-form .input-wrap {
-	display: flex;
-	align-items: center;
-	margin-bottom: 20px;
+	margin-bottom: 19px;
+}
+
+.sign-form .input-wrap:first-child {
+	margin-bottom: 0;
 }
 
 .sign-form .valid-text-wrap {
-	height: 30px;
+	height: 19px;
 }
 
 .sign-form .valid-text-wrap p {
-	line-height: 30px;
+	font-size: 13px;
+	line-height: 1.5;
 	text-align: right;
 	color: red;
 }
 
 .sign-form .input-wrap label {
 	width: 60px;
-	font-weight: 500;
+	font-weight: 400;
 	font-size: 14px;
+	color: #333;
 }
 
 .sign-form .input-wrap input {
 	width: 100%;
-	height: 20px;
+	padding: 10px 16px;
+	margin-top: 7px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
+	box-sizing: border-box;
 }
 
 .sign-form .input-wrap input:focus {
-	outline: none;
-}
-
-.sign-form .btn-wrap {
-	display: flex;
-	justify-content: flex-end;
+	outline: 1px solid rgba(147, 112, 216, .5);
 }
 
 .sign-form .btn-wrap button {
-	padding: 6px 16px;
+	width: 100%;
+	padding: 9px 16px;
 	border-radius: 4px;
-	font-weight: 700;
+	font-family: 'Noto Sans KR', 'Roboto';
+	font-weight: 500;
 	font-size: 14px;
 	color: #fff;
-	background-color: mediumpurple;
+	background-color: rgba(147, 112, 216, 1);
 	cursor: pointer;
+	transition: background 0.1s ease;
+}
+
+.sign-form .btn-wrap button:hover {
+	background-color: rgba(147, 112, 216, .8);
 }
