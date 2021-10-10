@@ -38,14 +38,9 @@
 				</div>
 			</div>
 			<div v-else class="sign-btns-wrap">
-				<div class="sign-btns-pc">
-					<button class="sign-btn" @click="logout">Logout</button>
-				</div>
-				<div class="sign-btns-mobile">
-					<button class="mobile-sign-btn" @click="logout">
-						<i class="fas fa-sign-out-alt"></i>
-					</button>
-				</div>
+				<button class="mobile-sign-btn" @click="logout">
+					<i class="fas fa-sign-out-alt"></i>
+				</button>
 			</div>
 		</div>
 	</header>
@@ -132,6 +127,10 @@ export default {
 
 .mobile-sign-btn {
 	padding: 5px;
+}
+
+.mobile-sign-btn:hover {
+	opacity: 0.75;
 }
 
 .mobile-sign-btn i {

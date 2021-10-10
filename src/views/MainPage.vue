@@ -5,18 +5,22 @@
 				<li v-for="item in posts" :key="item.id" class="post-item">
 					<h3 class="post-title">{{ item.title }}</h3>
 					<p class="post-contents">{{ item.contents }}</p>
-					<div class="post-btns">
+					<div class="post-bottom-wrap">
 						<p class="created">{{ item.createdAt | formatDate }}</p>
-						<button class="edit-btn" @click="openEditPostDialog(item._id)">
-							Edit
-						</button>
-						<button class="remove-btn" @click="handleDeletePost(item._id)">
-							Remove
-						</button>
+						<div class="post-btns">
+							<button class="edit-btn" @click="openEditPostDialog(item._id)">
+								<i class="fas fa-edit"></i>
+							</button>
+							<button class="remove-btn" @click="handleDeletePost(item._id)">
+								<i class="fas fa-trash-alt"></i>
+							</button>
+						</div>
 					</div>
 				</li>
 			</ul>
-			<button class="add-btn" @click="addPostDialog = true">Add</button>
+			<button class="add-btn" @click="addPostDialog = true">
+				<i class="fas fa-plus"></i>
+			</button>
 		</div>
 		<el-dialog
 			v-loading="loading"
@@ -213,29 +217,31 @@ export default {
 	height: 320px;
 	padding: 20px 20px 40px;
 	margin: 0 30px 30px 0;
-	border-radius: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	color: #222;
 	background-color: #fff;
 	box-sizing: border-box;
 }
 
 .post-title {
+	padding-bottom: 10px;
 	font-weight: 700;
-	font-size: 24px;
+	font-size: 18px;
+	border-bottom: 1px solid #eee;
+	word-break: break-all;
 }
 
 .post-contents {
-	margin-top: 20px;
-	font-size: 18px;
+	margin-top: 10px;
+	font-size: 14px;
 	line-height: 1.5;
+	word-break: break-all;
 }
 
-.post-item .created {
-	margin-right: 10px;
-}
-
-.post-item .post-btns {
+.post-bottom-wrap {
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-between;
 	align-items: center;
 	position: absolute;
 	left: 0;
@@ -246,14 +252,27 @@ export default {
 	box-sizing: border-box;
 }
 
+.post-item .created {
+	margin-right: 10px;
+	font-size: 14px;
+	color: #999;
+}
+
 .post-item .post-btns button {
-	border: none;
-	outline: none;
+	width: 50px;
 	padding: 5px 15px;
 	border-radius: 4px;
+	border: none;
+	outline: none;
 	background-color: mediumpurple;
+	font-size: 16px;
 	color: #fff;
 	cursor: pointer;
+	transition: all 0.1s ease;
+}
+
+.post-item .post-btns button:hover {
+	opacity: 0.8;
 }
 
 .post-item .post-btns .edit-btn {
@@ -261,18 +280,24 @@ export default {
 }
 
 .add-btn {
-	position: absolute;
-	right: 10px;
-	bottom: -50px;
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
 	width: 60px;
 	height: 60px;
 	border: none;
 	outline: none;
 	padding: 5px 15px;
-	border-radius: 4px;
+	border-radius: 50%;
 	background-color: mediumpurple;
+	font-size: 24px;
 	color: #fff;
 	cursor: pointer;
+}
+
+.add-btn:hover {
+	border: 1px solid rgb(134, 94, 214);
+	color: #f5f5f5;
 }
 
 /* form */
@@ -298,5 +323,15 @@ export default {
 	color: #fff;
 	border: none;
 	border-radius: 4px;
+}
+
+@media screen and (max-width: 1100px) {
+	.post-list {
+		justify-content: space-around;
+	}
+
+	.post-item {
+		margin-right: 0;
+	}
 }
 </style>
