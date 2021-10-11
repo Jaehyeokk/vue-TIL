@@ -27,6 +27,7 @@
 			title="Add Post"
 			:visible.sync="addPostDialog"
 			:before-close="closePostDialog"
+			:lock-scroll="false"
 			class="post-dialog"
 		>
 			<div class="add-form-wrap">
@@ -50,8 +51,7 @@
 						/>
 					</div>
 					<div class="form-btns-wrap">
-						<button type="submit">Add</button>
-						<button type="button" @click="closePostDialog">Cancel</button>
+						<button type="submit"><i class="fas fa-plus"></i></button>
 					</div>
 				</form>
 			</div>
@@ -61,6 +61,7 @@
 			title="Edit Post"
 			:visible.sync="editPostDialog"
 			:before-close="closePostDialog"
+			:lock-scroll="false"
 			class="post-dialog"
 		>
 			<div class="add-form-wrap">
@@ -84,8 +85,7 @@
 						/>
 					</div>
 					<div class="form-btns-wrap">
-						<button type="submit">Edit</button>
-						<button type="button" @click="closePostDialog">Cancel</button>
+						<button type="submit"><i class="fas fa-edit"></i></button>
 					</div>
 				</form>
 			</div>
@@ -131,6 +131,7 @@ export default {
 			}
 		},
 		closePostDialog() {
+			this.resetForm();
 			this.addPostDialog = false;
 			this.editPostDialog = false;
 		},
@@ -304,7 +305,31 @@ export default {
 .post-dialog .input-wrap {
 	display: flex;
 	justify-content: space-between;
+	align-items: baseline;
 	margin-bottom: 10px;
+}
+
+.post-dialog .input-wrap label {
+	flex: 1;
+}
+.post-dialog .input-wrap input,
+.post-dialog .input-wrap textarea {
+	width: calc(100% - 100px);
+	padding: 10px 16px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+.post-dialog .input-wrap textarea {
+	max-width: 460px;
+	height: 150px;
+	max-height: 150px;
+}
+
+.post-dialog .input-wrap input,
+.post-dialog .input-wrap textarea:focus {
+	outline: 1px solid rgba(147, 112, 216, 0.5);
 }
 
 .post-dialog .form-btns-wrap {
@@ -317,12 +342,14 @@ export default {
 }
 
 .post-dialog .form-btns-wrap button {
+	width: 50px;
 	padding: 5px 15px;
 	margin: 10px 0 0 10px;
-	background-color: mediumpurple;
-	color: #fff;
+	font-size: 16px;
 	border: none;
 	border-radius: 4px;
+	color: #fff;
+	background-color: mediumpurple;
 }
 
 @media screen and (max-width: 1100px) {

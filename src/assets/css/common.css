@@ -11,19 +11,30 @@ html {
 
 /* dialog */
 .post-dialog .el-dialog {
+	overflow: hidden;
 	width: 90%;
-	max-width: 400px;
+	max-width: 600px;
+	border-radius: 20px;
+	background-color: transparent;
 }
+
 
 .post-dialog .el-dialog__header {
 	background-color: mediumpurple;
 }
 
+.post-dialog .el-dialog .el-dialog__body {
+	background-color: #fff
+}
+
 .post-dialog .el-dialog__title {
+	font-size: 21px;
 	color: #fff;
 }
 
 .post-dialog .el-dialog__headerbtn .el-dialog__close {
+	font-weight: 700;
+	font-size: 24px;
 	color: #fff;
 }
 
