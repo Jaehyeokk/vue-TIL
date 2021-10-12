@@ -29,12 +29,12 @@ export default {};
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 60px;
-	padding: 0 20px;
-	margin-top: 60px;
+	height: 6rem;
+	padding: 0 2rem;
+	margin-top: 6rem;
 	background-color: mediumpurple;
 	color: #f5f5f5;
-	box-shadow: -0px -3px 3px rgba(0, 0, 0, 0.1);
+	box-shadow: 0rem -0.3rem 0.3rem rgba(0, 0, 0, 0.1);
 }
 
 .footer-link-wrap {
@@ -44,8 +44,8 @@ export default {};
 }
 
 .footer-link {
-	padding: 0 12px;
-	font-size: 16px;
+	padding: 0 1.2rem;
+	font-size: 1.6rem;
 	color: #fff;
 	transition: all 0.1s ease;
 }
@@ -55,7 +55,7 @@ export default {};
 }
 
 .footer-link i {
-	margin-right: 7px;
-	font-size: 27px;
+	margin-right: 0.7rem;
+	font-size: 2.7rem;
 }
 </style>

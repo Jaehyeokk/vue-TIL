@@ -1,20 +1,24 @@
-/* html */
 html {
   background-color: #fff;
 	font-family: 'Noto Sans KR', 'Roboto';
+	font-size: 62.5%;
+}
+
+body {
+	font-size: 1.6rem;
 }
 
 /* page */
 .page {
-	min-height: calc(100vh - 240px);
+	min-height: calc(100vh - 24rem);
 }
 
 /* dialog */
 .post-dialog .el-dialog {
 	overflow: hidden;
 	width: 90%;
-	max-width: 600px;
-	border-radius: 20px;
+	max-width: 60rem;
+	border-radius: 2rem;
 	background-color: transparent;
 }
 
@@ -28,18 +32,18 @@ html {
 }
 
 .post-dialog .el-dialog__title {
-	font-size: 21px;
+	font-size: 2.1rem;
 	color: #fff;
 }
 
 .post-dialog .el-dialog__headerbtn .el-dialog__close {
 	font-weight: 700;
-	font-size: 24px;
+	font-size: 2.4rem;
 	color: #fff;
 }
 
 .sign-form .input-wrap {
-	margin-bottom: 19px;
+	margin-bottom: 1.9rem;
 }
 
 .sign-form .input-wrap:first-child {
@@ -47,43 +51,43 @@ html {
 }
 
 .sign-form .valid-text-wrap {
-	height: 19px;
+	height: 1.9rem;
 }
 
 .sign-form .valid-text-wrap p {
-	font-size: 13px;
+	font-size: 1.3rem;
 	line-height: 1.5;
 	text-align: right;
 	color: red;
 }
 
 .sign-form .input-wrap label {
-	width: 60px;
+	width: 6rem;
 	font-weight: 400;
-	font-size: 14px;
+	font-size: 1.4rem;
 	color: #333;
 }
 
 .sign-form .input-wrap input {
 	width: 100%;
-	padding: 10px 16px;
-	margin-top: 7px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
+	padding: 1rem 1.6rem;
+	margin-top: .7rem;
+	border: .1rem solid #ccc;
+	border-radius: .4rem;
 	box-sizing: border-box;
 }
 
 .sign-form .input-wrap input:focus {
-	outline: 1px solid rgba(147, 112, 216, .5);
+	outline: .1rem solid rgba(147, 112, 216, .5);
 }
 
 .sign-form .btn-wrap button {
 	width: 100%;
-	padding: 9px 16px;
-	border-radius: 4px;
+	padding: .9rem 1.6rem;
+	border-radius: .4rem;
 	font-family: 'Noto Sans KR', 'Roboto';
 	font-weight: 500;
-	font-size: 14px;
+	font-size: 1.4rem;
 	color: #fff;
 	background-color: rgba(147, 112, 216, 1);
 	cursor: pointer;

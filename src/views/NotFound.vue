@@ -13,12 +13,12 @@ export default {};
 
 <style scoped>
 .container {
-	width: 360px;
-	padding: 20px;
-	margin: 60px auto 0 auto;
-	border-radius: 20px;
+	width: 36rem;
+	padding: 2rem;
+	margin: 6rem auto 0 auto;
+	border-radius: 2rem;
 	font-weight: 700;
-	font-size: 32px;
+	font-size: 3.2rem;
 	text-align: center;
 	background-color: #fff;
 	box-sizing: border-box;
@@ -29,7 +29,7 @@ export default {};
 }
 
 .not-found-text {
-	margin-top: 20px;
-	font-size: 16px;
+	margin-top: 2rem;
+	font-size: 1.6rem;
 }
 </style>

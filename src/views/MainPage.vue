@@ -199,11 +199,11 @@ export default {
 <style scoped>
 .main-page {
 	position: relative;
-	min-height: calc(100vh - 240px);
+	min-height: calc(100vh - 24rem);
 }
 
 .container {
-	padding: 0 20px;
+	padding: 0 2rem;
 }
 
 .post-list {
@@ -214,28 +214,28 @@ export default {
 .post-item {
 	overflow-y: auto;
 	position: relative;
-	width: 320px;
-	height: 320px;
-	padding: 20px 20px 40px;
-	margin: 0 30px 30px 0;
-	border: 1px solid #ccc;
-	border-radius: 5px;
+	width: 32rem;
+	height: 32rem;
+	padding: 2rem 2rem 4rem;
+	margin: 0 3rem 3rem 0;
+	border: 0.1rem solid #ccc;
+	border-radius: 0.5rem;
 	color: #222;
 	background-color: #fff;
 	box-sizing: border-box;
 }
 
 .post-title {
-	padding-bottom: 10px;
+	padding-bottom: 1rem;
 	font-weight: 700;
-	font-size: 18px;
-	border-bottom: 1px solid #eee;
+	font-size: 1.8rem;
+	border-bottom: 0.1rem solid #eee;
 	word-break: break-all;
 }
 
 .post-contents {
-	margin-top: 10px;
-	font-size: 14px;
+	margin-top: 1rem;
+	font-size: 1.4rem;
 	line-height: 1.5;
 	word-break: break-all;
 }
@@ -248,25 +248,25 @@ export default {
 	left: 0;
 	bottom: 0;
 	width: 100%;
-	height: 40px;
-	padding: 0 20px;
+	height: 4rem;
+	padding: 0 2rem;
 	box-sizing: border-box;
 }
 
 .post-item .created {
-	margin-right: 10px;
-	font-size: 14px;
+	margin-right: 1rem;
+	font-size: 1.4rem;
 	color: #999;
 }
 
 .post-item .post-btns button {
-	width: 50px;
-	padding: 5px 15px;
-	border-radius: 4px;
+	width: 5rem;
+	padding: 0.5rem 1.5rem;
+	border-radius: 0.4rem;
 	border: none;
 	outline: none;
 	background-color: mediumpurple;
-	font-size: 16px;
+	font-size: 1.6rem;
 	color: #fff;
 	cursor: pointer;
 	transition: all 0.1s ease;
@@ -277,27 +277,27 @@ export default {
 }
 
 .post-item .post-btns .edit-btn {
-	margin-right: 5px;
+	margin-right: 0.5rem;
 }
 
 .add-btn {
 	position: fixed;
-	right: 20px;
-	bottom: 20px;
-	width: 60px;
-	height: 60px;
+	right: 2rem;
+	bottom: 2rem;
+	width: 6rem;
+	height: 6rem;
 	border: none;
 	outline: none;
-	padding: 5px 15px;
+	padding: 0.5rem 1.5rem;
 	border-radius: 50%;
 	background-color: mediumpurple;
-	font-size: 24px;
+	font-size: 2.4rem;
 	color: #fff;
 	cursor: pointer;
 }
 
 .add-btn:hover {
-	border: 1px solid rgb(134, 94, 214);
+	border: 0.1rem solid rgb(134, 94, 214);
 	color: #f5f5f5;
 }
 
@@ -306,7 +306,7 @@ export default {
 	display: flex;
 	justify-content: space-between;
 	align-items: baseline;
-	margin-bottom: 10px;
+	margin-bottom: 1rem;
 }
 
 .post-dialog .input-wrap label {
@@ -314,22 +314,22 @@ export default {
 }
 .post-dialog .input-wrap input,
 .post-dialog .input-wrap textarea {
-	width: calc(100% - 100px);
-	padding: 10px 16px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
+	width: calc(100% - 10rem);
+	padding: 1rem 1.6rem;
+	border: 0.1rem solid #ccc;
+	border-radius: 0.4rem;
 	box-sizing: border-box;
 }
 
 .post-dialog .input-wrap textarea {
-	max-width: 460px;
-	height: 150px;
-	max-height: 150px;
+	max-width: 46rem;
+	height: 15rem;
+	max-height: 15rem;
 }
 
 .post-dialog .input-wrap input,
 .post-dialog .input-wrap textarea:focus {
-	outline: 1px solid rgba(147, 112, 216, 0.5);
+	outline: 0.1rem solid rgba(147, 112, 216, 0.5);
 }
 
 .post-dialog .form-btns-wrap {
@@ -338,16 +338,16 @@ export default {
 }
 
 .post-dialog .input-wrap .input-area {
-	min-width: 180px;
+	min-width: 18rem;
 }
 
 .post-dialog .form-btns-wrap button {
-	width: 50px;
-	padding: 5px 15px;
-	margin: 10px 0 0 10px;
-	font-size: 16px;
+	width: 5rem;
+	padding: 0.5rem 1.5rem;
+	margin: 1rem 0 0 1rem;
+	font-size: 1.6rem;
 	border: none;
-	border-radius: 4px;
+	border-radius: 0.4rem;
 	color: #fff;
 	background-color: mediumpurple;
 }

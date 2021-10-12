@@ -60,14 +60,16 @@ export default {
 		handleMobileMenu() {
 			const nav = this.$refs.mobileMenu;
 			if (nav.style.maxHeight === '') {
-				nav.style.maxHeight = '300' + 'px';
+				nav.style.maxHeight = '30' + 'rem';
 			} else {
 				nav.style.maxHeight = '';
 			}
 		},
 		handleMobileLink(link) {
 			const nav = this.$refs.mobileMenu;
-			this.$router.push(`/${link}`);
+			if (this.$route.path !== `/${link}`) {
+				this.$router.push(`/${link}`);
+			}
 			if (nav.style.maxHeight !== '') {
 				nav.style.maxHeight = '';
 			}
@@ -79,10 +81,10 @@ export default {
 <style scoped>
 .header {
 	position: relative;
-	height: 60px;
-	margin-bottom: 60px;
+	height: 6rem;
+	margin-bottom: 6rem;
 	background-color: mediumpurple;
-	box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+	box-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
 }
 
 .header .container {
@@ -90,22 +92,22 @@ export default {
 	justify-content: space-between;
 	align-items: center;
 	height: 100%;
-	padding: 0 20px;
+	padding: 0 2rem;
 }
 
 .header .logo a {
 	height: 100%;
-	padding: 0 20px;
+	padding: 0 2rem;
 	font-family: 'Playball';
 	font-weight: 700;
-	font-size: 27px;
+	font-size: 2.7rem;
 	color: #fff;
 }
 
 .header .sign-btn {
-	padding: 6px 16px;
-	border-radius: 5px;
-	font-size: 14px;
+	padding: 0.6rem 1.6rem;
+	border-radius: 0.5rem;
+	font-size: 1.4rem;
 	font-weight: 700;
 	color: #fff;
 	background-color: rgba(147, 112, 216, 1);
@@ -117,8 +119,8 @@ export default {
 }
 
 .header .sign-btn.border {
-	border: 1px solid #fff;
-	margin-left: 10px;
+	border: 0.1rem solid #fff;
+	margin-left: 1rem;
 }
 
 .sign-btns-mobile {
@@ -126,7 +128,7 @@ export default {
 }
 
 .mobile-sign-btn {
-	padding: 5px;
+	padding: 0.5rem;
 }
 
 .mobile-sign-btn:hover {
@@ -134,7 +136,7 @@ export default {
 }
 
 .mobile-sign-btn i {
-	font-size: 27px;
+	font-size: 2.7rem;
 	color: #fff;
 }
 
@@ -143,29 +145,29 @@ export default {
 	overflow: hidden;
 	position: absolute;
 	left: 0;
-	top: 60px;
+	top: 6rem;
 	width: 100%;
 	max-height: 0;
 	background-color: #fff;
 	transition: 0.3s ease;
-	box-shadow: 1px 1px 1px rgba(34, 34, 34, 0.1);
+	box-shadow: 0.1rem 0.1rem 0.1rem rgba(34, 34, 34, 0.1);
 }
 
 .mobile-menu-list {
-	padding: 10px 0;
+	padding: 1rem 0;
 	background-color: rgba(147, 112, 216, 0.9);
 }
 
 .mobile-menu-item {
-	padding: 0 20px;
+	padding: 0 2rem;
 	text-align: right;
 }
 
 .mobile-menu-link {
 	display: inline-block;
-	padding: 20px 0;
+	padding: 2rem 0;
 	font-weight: 700;
-	font-size: 14px;
+	font-size: 1.4rem;
 	color: #fff;
 }
 
