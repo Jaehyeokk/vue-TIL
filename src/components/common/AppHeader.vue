@@ -46,27 +46,30 @@
 	</header>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import { mapGetters } from 'vuex';
-export default {
+
+export default Vue.extend({
 	computed: {
 		...mapGetters(['is_login']),
 	},
+
 	methods: {
 		logout() {
 			this.$store.commit('LOGOUT');
-			this.$router.push({ name: 'login-page' });
+			this.$router.push('/signin');
 		},
 		handleMobileMenu() {
-			const nav = this.$refs.mobileMenu;
+			const nav = this.$refs.mobileMenu as HTMLElement;
 			if (nav.style.maxHeight === '') {
 				nav.style.maxHeight = '30' + 'rem';
 			} else {
 				nav.style.maxHeight = '';
 			}
 		},
-		handleMobileLink(link) {
-			const nav = this.$refs.mobileMenu;
+		handleMobileLink(link: string) {
+			const nav = this.$refs.mobileMenu as HTMLElement;
 			if (this.$route.path !== `/${link}`) {
 				this.$router.push(`/${link}`);
 			}
@@ -75,7 +78,7 @@ export default {
 			}
 		},
 	},
-};
+});
 </script>
 
 <style scoped>

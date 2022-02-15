@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import App from './App.vue';
-import router from './router';
-import store from './store';
+import router from './router/index';
+import store from './store/index';
 import Element from 'element-ui';
-import { formatDate } from '@/utils/filters.js';
+import { formatDate } from '@/utils/filters';
 
 Vue.config.productionTip = false;
 

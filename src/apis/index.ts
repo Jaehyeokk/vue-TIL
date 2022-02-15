@@ -1,5 +1,5 @@
 import axios from 'axios';
-import interceptors from '@/apis/common/interceptors.js';
+import interceptors from '@/apis/common/interceptors';
 
 function createInstance() {
 	const instance = axios.create({
@@ -8,7 +8,7 @@ function createInstance() {
 	return instance;
 }
 
-function createAuthInstance(url) {
+function createAuthInstance(url: string) {
 	const instance = axios.create({
 		baseURL: `${process.env.VUE_APP_API_URL}/${url}`,
 	});

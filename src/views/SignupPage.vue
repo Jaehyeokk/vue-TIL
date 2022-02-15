@@ -7,13 +7,15 @@
 	</div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import SignForm from '@/components/form/SignForm.vue';
-export default {
+
+export default Vue.extend({
 	components: {
 		SignForm,
 	},
-};
+});
 </script>
 
 <style scoped>

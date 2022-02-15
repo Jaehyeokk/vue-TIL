@@ -7,8 +7,9 @@
 	</div>
 </template>
 
-<script>
-export default {};
+<script lang="ts">
+import Vue from 'vue';
+export default Vue.extend({});
 </script>
 
 <style scoped>

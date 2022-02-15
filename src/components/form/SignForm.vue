@@ -35,10 +35,12 @@
 	</div>
 </template>
 
-<script>
-import { signupUser } from '@/apis/auth.js';
-import { validateEmail } from '@/utils/validation.js';
-export default {
+<script lang="ts">
+import Vue from 'vue';
+import { signupUser } from '@/apis/auth';
+import { validateEmail } from '@/utils/validation';
+
+export default Vue.extend({
 	data() {
 		return {
 			sign_id: '',
@@ -46,14 +48,16 @@ export default {
 			sign_name: '',
 		};
 	},
+
 	computed: {
-		isTitle() {
+		isTitle(): string {
 			return this.$route.name === 'signup-page' ? 'Sign up' : 'Sign in';
 		},
-		isValidateEmail() {
+		isValidateEmail(): boolean {
 			return validateEmail(this.sign_id);
 		},
 	},
+
 	methods: {
 		submitHandle() {
 			if (this.$route.name === 'signup-page') {
@@ -95,5 +99,5 @@ export default {
 			this.sign_name = '';
 		},
 	},
-};
+});
 </script>

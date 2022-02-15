@@ -93,19 +93,22 @@
 	</div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import {
 	fetchPosts,
 	fetchPost,
 	createPost,
 	editPost,
 	deletePost,
-} from '@/apis/posts.js';
-export default {
+	PostInfo,
+} from '@/apis/posts';
+
+export default Vue.extend({
 	data() {
 		return {
 			loading: false,
-			posts: null,
+			posts: [] as PostInfo[],
 			addPostDialog: false,
 			editPostDialog: false,
 			edit_id: '',
@@ -113,9 +116,7 @@ export default {
 			form_contents: '',
 		};
 	},
-	mounted() {
-		this.loadPost();
-	},
+
 	methods: {
 		async loadPost() {
 			try {
@@ -152,7 +153,7 @@ export default {
 				this.loading = false;
 			}
 		},
-		async openEditPostDialog(id) {
+		async openEditPostDialog(id: string) {
 			const { data } = await fetchPost(id);
 			this.edit_id = data._id;
 			this.form_title = data.title;
@@ -176,7 +177,7 @@ export default {
 				this.loading = false;
 			}
 		},
-		async handleDeletePost(id) {
+		async handleDeletePost(id: string) {
 			try {
 				this.loading = true;
 				await deletePost(id);
@@ -193,7 +194,11 @@ export default {
 			this.form_contents = '';
 		},
 	},
-};
+
+	mounted() {
+		this.loadPost();
+	},
+});
 </script>
 
 <style scoped>
